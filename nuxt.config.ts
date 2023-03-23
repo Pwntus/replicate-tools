@@ -13,9 +13,6 @@ export default defineNuxtConfig({
     '~/assets/style/global.styl'
   ],
   modules: ['@pinia/nuxt'],
-  nitro: {
-    preset: 'vercel-edge'
-  },
   build: {
     transpile: ['vuetify']
   },
@@ -25,15 +22,7 @@ export default defineNuxtConfig({
   },
   hooks: {
     'vite:extendConfig': (config) => {
-      config.plugins?.push(
-        vuetify()
-        /*
-        vuetify({
-          autoImport: true,
-          styles: { configFile: './assets/style/vuetify.scss' }
-        })
-        */
-      )
+      config.plugins?.push(vuetify())
     }
   }
 })
