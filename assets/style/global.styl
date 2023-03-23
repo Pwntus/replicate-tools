@@ -1,0 +1,91 @@
+body
+  background @css { rgb(var(--v-theme-background)) }
+
+a, a:visited, a:active
+  color #000
+  text-decoration none
+
+.v-dialog--fullscreen
+  width unset !important
+  height unset !important
+  left 48px !important
+  right 48px !important
+  top 48px !important
+  bottom 48px !important
+  border-radius 4px !important
+
+.v-tab, .v-btn
+  text-transform none !important
+
+.v-tabs
+  .v-slide-group__prev, .v-slide-group__next
+    display none !important
+
+.v-select__selection-text
+  max-width 100%
+  overflow hidden
+  text-overflow ellipsis
+
+.v-table
+  color #000 !important
+
+  th
+    font-weight normal !important
+    font-size 16px !important
+    color rgba(0, 0, 0, .45) !important
+
+  a, a:visited, a:active
+    text-decoration underline
+    text-decoration-color rgba(0, 0, 0, 0.45)
+    text-decoration-thickness 0.6px
+    text-underline-offset 0.15em
+    -webkit-text-decoration-color rgba(0, 0, 0, 0.45)
+
+    &:hover
+      text-decoration-color black
+      text-decoration-thickness 2px
+      -webkit-text-decoration-color black
+
+    &:focus
+      background black
+      outline 0.333em solid black
+      color #fff !important
+
+.sheet-button
+  width 100%
+  min-width 0
+  aspect-ratio 1
+  background rgba(0, 0, 0, .05)
+  border-radius 4px
+  color rgba(0, 0, 0, .5)
+  cursor pointer
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+
+  .v-icon
+    margin-bottom 8px
+    transition none
+
+  &:hover
+    background rgba(0, 0, 0, .1)
+    color #000
+
+    .v-icon
+      color #000
+      transition none
+
+  &.dark
+    background #000
+    color #fff
+
+    .v-icon
+      color #fff
+
+    &:hover
+      text-decoration underline
+      text-decoration-color #fff
+      text-decoration-thickness 2px
+      text-underline-offset 0.15em
+      -webkit-text-decoration-color #fff

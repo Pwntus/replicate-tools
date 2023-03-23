@@ -7,7 +7,29 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "dependencies": {
+    "@fontsource/space-grotesk": "^4.5.13",
+    "@pinia/nuxt": "^0.4.7",
+    "@prisma/client": "4.11.0",
+    "dayjs": "^1.11.7",
+    "lodash": "^4.17.21",
+    "pinia": "^2.0.33",
+    "replicate-api": "^0.4.4",
+    "scrape-it": "^6.0.1",
+    "uuid": "^9.0.0",
+    "vuetify": "^3.1.11"
+  },
   "devDependencies": {
-    "nuxt": "^3.0.0"
+    "@mdi/font": "^7.2.96",
+    "@types/lodash": "^4.14.191",
+    "@types/uuid": "^9.0.1",
+    "nuxt": "^3.3.1",
+    "prisma": "^4.11.0",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass": "^1.59.3",
+    "stylus": "^0.59.0",
+    "stylus-loader": "^7.1.0",
+    "vite-plugin-vuetify": "^1.0.2"
   }
 }
