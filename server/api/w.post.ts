@@ -92,7 +92,10 @@ export default defineEventHandler(async (event) => {
             {}
           )
           const merged_input = { ...step_model.input, ...step_prediction_input }
-          console.log('MERGED', JSON.stringify(merged_input, null, 2))
+          console.log(
+            'Merged input (pipeline + prediction)',
+            JSON.stringify(merged_input, null, 2)
+          )
 
           // Check connection in merged input and convert to actual value (output from previous step)
           for (const [key, value] of Object.entries(merged_input)) {
@@ -121,7 +124,7 @@ export default defineEventHandler(async (event) => {
             }
           }
           console.log(
-            'MERGED AFTER TRANSLATION',
+            'Merged input after transforming connections',
             JSON.stringify(merged_input, null, 2)
           )
 

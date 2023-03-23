@@ -58,10 +58,11 @@ export default {
 
       const step_index = Object.keys(prediction.data).pop() || 0
       const completed_ats = Object.values(prediction.data[step_index]).map(
-        (model: any) => model.completed_at
+        (model: any) => new Date(model.completedAt).getTime()
       )
       const latest_complete = Math.max(...completed_ats)
-      const duration = latest_complete - prediction.created_at
+      const duration =
+        latest_complete - new Date(prediction.createdAt).getTime()
       return (duration / 1000).toFixed(2) + ' seconds'
     },
     formatDate(d: string) {

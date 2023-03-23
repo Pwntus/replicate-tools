@@ -23,7 +23,7 @@
           )
             | {{ input_name }}
             .pipeline-model-input-value {{ input_value }}
-        .pipeline-model-output-wrapper
+        .pipeline-model-output-wrapper(v-if="model")
           .text-h5 Output
           pre {{ model.output }}
 </template>
