@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { get } from 'lodash'
+import { default as _ } from 'lodash'
 import { useModelStore } from '~/stores/model'
 
 export default {
@@ -38,7 +38,7 @@ export default {
       return index > -1 ? this.store.models[index] : null
     },
     cover_image() {
-      return get(this.resolved_model, 'cover_image.url', null)
+      return _.get(this.resolved_model, 'cover_image.url', null)
     }
   }
 }

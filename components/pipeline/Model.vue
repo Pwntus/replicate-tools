@@ -76,7 +76,7 @@
 </template>
 
 <script lang="ts">
-import { get } from 'lodash'
+import { default as _ } from 'lodash'
 import { useModelStore } from '~/stores/model'
 
 export default {
@@ -96,25 +96,25 @@ export default {
       return index > -1 ? this.store.models[index] : null
     },
     cover_image() {
-      return get(this.resolved_model, 'cover_image.url', null)
+      return _.get(this.resolved_model, 'cover_image.url', null)
     },
     schema() {
-      const versions = get(this.resolved_model, 'versions', [])
+      const versions = _.get(this.resolved_model, 'versions', [])
       const index = versions.findIndex(
         (item: any) => item.id === this.modelValue.version
       )
       return index > -1 ? versions[index] : null
     },
     output() {
-      return get(this.schema, 'schema.components.schemas.Output', null)
+      return _.get(this.schema, 'schema.components.schemas.Output', null)
     },
     model_proxy: {
       get() {
         return this.modelValue.model || 'Select model'
       },
       set(value: any) {
-        const username = get(value, 'username', null)
-        const name = get(value, 'name', null)
+        const username = _.get(value, 'username', null)
+        const name = _.get(value, 'name', null)
         const model = username && name ? `${username}/${name}` : null
         this.$emit('update:modelValue', { ...this.modelValue, model })
       }
@@ -149,7 +149,7 @@ export default {
 
           // Set output
           this.$nextTick(() => {
-            const output = get(
+            const output = _.get(
               this.schema,
               'schema.components.schemas.Output',
               []
@@ -169,20 +169,24 @@ export default {
         const input = {}
 
         // Set output
-        const output = get(this.schema, 'schema.components.schemas.Output', [])
+        const output = _.get(
+          this.schema,
+          'schema.components.schemas.Output',
+          []
+        )
         this.$emit('update:modelValue', { ...this.modelValue, input, output })
       }
     }
   },
   methods: {
     formatModelCover(item: any) {
-      return get(item, 'cover_image.url', null)
+      return _.get(item, 'cover_image.url', null)
     },
     formatModelTitle(item: any) {
-      return get(item, 'username', '') + '/' + get(item, 'name', '')
+      return _.get(item, 'username', '') + '/' + _.get(item, 'name', '')
     },
     formatModelVersionTitle(item: any) {
-      return get(item, 'id', null)
+      return _.get(item, 'id', null)
     }
   }
 }

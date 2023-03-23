@@ -56,7 +56,7 @@
 </template>
 
 <script lang="ts">
-import { get } from 'lodash'
+import { default as _ } from 'lodash'
 import { v4 as uuidv4 } from 'uuid'
 import { useModelStore } from '~/stores/model'
 
@@ -89,7 +89,7 @@ export default {
       this.steps.splice(step_index, 1)
 
       // Remove next step connections (all)
-      const step = get(this.steps, step_index, null)
+      const step = _.get(this.steps, step_index, null)
       if (!step) return
 
       for (const [step_model_index, model] of step.entries())
@@ -110,7 +110,7 @@ export default {
       this.steps[step_index].splice(prev_step_model_index, 1)
 
       // Remove next step connections (with this model)
-      const step = get(this.steps, step_index + 1, null) as Step
+      const step = _.get(this.steps, step_index + 1, null) as Step
       if (!step) return
 
       for (const [step_model_index, model] of step.entries())

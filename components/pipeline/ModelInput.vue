@@ -84,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import { get } from 'lodash'
+import { default as _ } from 'lodash'
 
 type Entry = {
   name: string
@@ -100,12 +100,12 @@ export default {
   props: ['modelValue', 'schema', 'allowConnecting', 'immutable'],
   computed: {
     entries() {
-      const required = get(
+      const required = _.get(
         this.schema,
         'schema.components.schemas.Input.required',
         []
       )
-      const properties = get(
+      const properties = _.get(
         this.schema,
         'schema.components.schemas.Input.properties',
         []
@@ -120,9 +120,9 @@ export default {
         } (${entry.type})`
 
         if (value.allOf) {
-          const ref = get(value, 'allOf[0].$ref', '').split('/').pop()
+          const ref = _.get(value, 'allOf[0].$ref', '').split('/').pop()
           if (ref) {
-            const refval = get(
+            const refval = _.get(
               this.schema,
               `schema.components.schemas['${ref}']`,
               null
@@ -158,7 +158,7 @@ export default {
             // If isImmutable (read pipeline) don't overwrite with model defaults
             // If not isImmutable (create pipeline) do overwrite with model defaults
             const default_value = this.immutable
-              ? get(this.value_proxy, entry.name, entry.default)
+              ? _.get(this.value_proxy, entry.name, entry.default)
               : entry.default
             defaults[entry.name] = default_value
           }
